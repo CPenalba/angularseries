@@ -44,7 +44,11 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li *ngFor="let serie of series">
-              <a class="dropdown-item">{{ serie.nombre }}</a>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/detalles', serie.idSerie]"
+                >{{ serie.nombre }}</a
+              >
             </li>
           </ul>
         </li>

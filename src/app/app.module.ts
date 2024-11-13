@@ -10,6 +10,7 @@ import { DetallesSerieComponent } from './components/detalles-serie/detalles-ser
 import { appRoutingProvider, routing } from './app.routing';
 import { provideHttpClient } from '@angular/common/http';
 import { ServiceSeries } from './services/service.series';
+import { PersonajesSerieComponent } from './components/personajes-serie/personajes-serie.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ServiceSeries } from './services/service.series';
     NuevoPersonajeComponent,
     MenuComponent,
     DetallesSerieComponent,
+    PersonajesSerieComponent,
   ],
   imports: [BrowserModule, routing, FormsModule],
   providers: [appRoutingProvider, provideHttpClient(), ServiceSeries],

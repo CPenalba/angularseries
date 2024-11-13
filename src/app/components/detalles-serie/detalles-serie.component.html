@@ -1,1 +1,23 @@
-<p>detalles-serie works!</p>
+<div>
+  <h1>Detalles Serie</h1>
+  <hr />
+  <div class="container" *ngIf="!status">
+    <div class="loader"></div>
+    <div class="loader"></div>
+    <div class="loader"></div>
+  </div>
+
+  <div class="card" style="width: 18rem" v-if="serie">
+    <img src="{{ serie.imagen }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ serie.nombre }}</h5>
+      <p class="card-text">IMDB: {{ serie.puntuacion }}</p>
+      <button
+        class="btn btn-info"
+        [routerLink]="['/personajesserie', serie.idSerie]"
+      >
+        Personajes
+      </button>
+    </div>
+  </div>
+</div>
