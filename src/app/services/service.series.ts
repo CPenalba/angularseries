@@ -18,4 +18,10 @@ export class ServiceSeries {
     let url = environment.urlApiSeries + request;
     return this._http.get(url);
   }
+
+  findPersonajesByIdSerie(idSerie: string): Observable<any> {
+    let request = 'api/Series/PersonajesSerie/' + idSerie;
+    let url = environment.urlApiSeries + request;
+    return this._http.get(url);
+  }
 }

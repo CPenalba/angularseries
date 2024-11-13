@@ -1,1 +1,41 @@
-<p>personajes-serie works!</p>
+<div>
+  <h1>Buscar personajes de serie con id: {{ idSerie }}</h1>
+  <hr />
+  <div class="container" *ngIf="!status">
+    <div class="loader"></div>
+    <div class="loader"></div>
+    <div class="loader"></div>
+  </div>
+  <button class="btn btn-danger" [routerLink]="['/detalles', idSerie]">
+    Volver a serie
+  </button>
+  <table class="table table-bordered" *ngIf="status && personajes.length > 0">
+    <thead>
+      <tr>
+        <th>Id personaje</th>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Id serie</th>
+        <!-- <th>Eliminar</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let per of personajes">
+        <td>{{ per.idPersonaje }}</td>
+        <td>{{ per.nombre }}</td>
+        <td>
+          <img src="{{ per.imagen }}" width="150px" height="150px" />
+        </td>
+        <td>{{ per.idSerie }}</td>
+        <!-- <td>
+            <button
+              @click="deletePersonaje(per.idPersonaje)"
+              class="btn btn-danger"
+            >
+              Eliminar
+            </button>
+          </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
