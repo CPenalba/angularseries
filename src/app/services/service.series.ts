@@ -20,8 +20,14 @@ export class ServiceSeries {
     return this._http.get(url);
   }
 
-  findSerieById(idSerie: string): Observable<any> {
+  findSerieById(idSerie: number): Observable<any> {
     let request = 'api/series/' + idSerie;
+    let url = environment.urlApiSeries + request;
+    return this._http.get(url);
+  }
+
+  findPersonajeById(idPersonaje: number): Observable<any> {
+    let request = 'api/personajes/' + idPersonaje;
     let url = environment.urlApiSeries + request;
     return this._http.get(url);
   }

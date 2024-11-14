@@ -4,7 +4,12 @@
   <form #createForm="ngForm">
     <label>Serie: </label>
     <br />
-    <select name="cajaidSerie" #cajaidSerie class="form-control">
+    <select
+      name="cajaidSerie"
+      #cajaidSerie
+      class="form-control"
+      (change)="mostrarSerie()"
+    >
       <option *ngFor="let serie of series" value="{{ serie.idSerie }}">
         {{ serie.nombre }}
       </option>
@@ -12,7 +17,12 @@
     <br />
     <label>Personaje: </label>
     <br />
-    <select name="cajaidPersonaje" #cajaidPersonaje class="form-control">
+    <select
+      name="cajaidPersonaje"
+      #cajaidPersonaje
+      class="form-control"
+      (change)="mostrarPersonaje()"
+    >
       <option
         *ngFor="let personaje of personajes"
         value="{{ personaje.idPersonaje }}"
@@ -23,4 +33,16 @@
     <br />
     <button class="btn btn-success">Modificar personaje</button>
   </form>
+  <div class="containerr">
+    <div *ngIf="serie">
+      <h2>{{ serie.nombre }}</h2>
+      <hr />
+      <img src="{{ serie.imagen }}" width="400px" height="400px" />
+    </div>
+    <div *ngIf="personaje">
+      <h2>{{ personaje.nombre }}</h2>
+      <hr />
+      <img src="{{ personaje.imagen }}" width="400px" height="400px" />
+    </div>
+  </div>
 </div>
