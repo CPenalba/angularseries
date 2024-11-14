@@ -31,7 +31,9 @@
       </option>
     </select>
     <br />
-    <button class="btn btn-success">Modificar personaje</button>
+    <button class="btn btn-success" (click)="updatePersonaje()">
+      Modificar personaje
+    </button>
   </form>
   <div class="containerr">
     <div *ngIf="serie">

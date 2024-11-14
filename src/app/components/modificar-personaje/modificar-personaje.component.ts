@@ -33,6 +33,17 @@ export class ModificarPersonajeComponent implements OnInit {
     });
   }
 
+  updatePersonaje(): void {
+    var idSerie = parseInt(this.cajaIdSerie.nativeElement.value);
+    var idPersonaje = parseInt(this.cajaIdPersonaje.nativeElement.value);
+    this._service
+      .updatePersonaje(idPersonaje, idSerie)
+      .subscribe((response) => {
+        console.log(response);
+        this._router.navigate(['/personajesserie/' + idSerie]);
+      });
+  }
+
   ngOnInit(): void {
     this._service.getSeries().subscribe((response) => {
       this.series = response;

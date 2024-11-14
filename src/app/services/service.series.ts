@@ -46,4 +46,11 @@ export class ServiceSeries {
     let url = environment.urlApiSeries + request;
     return this._http.post(url, json, { headers: header });
   }
+
+  updatePersonaje(idPersonaje: number, idSerie: number): Observable<any> {
+    var header = new HttpHeaders().set('content-type', 'application/json');
+    var request = 'api/personajes/' + idPersonaje + '/' + idSerie;
+    var url = environment.urlApiSeries + request;
+    return this._http.put(url, { headers: header });
+  }
 }
