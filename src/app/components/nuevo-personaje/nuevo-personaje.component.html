@@ -1,1 +1,22 @@
-<p>nuevo-personaje works!</p>
+<div>
+  <h1>Crear personaje</h1>
+  <hr />
+  <form #createForm="ngForm">
+    <label>Nombre: </label>
+    <input type="text" class="form-control" name="cajanombre" #cajanombre />
+    <br />
+    <label>Imagen: </label>
+    <input type="text" class="form-control" name="cajaimagen" #cajaimagen />
+    <label>Serie: </label>
+    <br />
+    <select name="cajaidSerie" #cajaidSerie class="form-control">
+      <option *ngFor="let serie of series" value="{{ serie.idSerie }}">
+        {{ serie.nombre }}
+      </option>
+    </select>
+    <br />
+    <button class="btn btn-success" (click)="nuevoPersonaje()">
+      Crear persoanje
+    </button>
+  </form>
+</div>

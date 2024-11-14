@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Personaje } from '../models/personaje';
 
 @Injectable()
 export class ServiceSeries {
@@ -23,5 +24,14 @@ export class ServiceSeries {
     let request = 'api/Series/PersonajesSerie/' + idSerie;
     let url = environment.urlApiSeries + request;
     return this._http.get(url);
+  }
+
+  nuevoPersonaje(personaje: Personaje): Observable<any> {
+    let json = JSON.stringify(personaje);
+    let header = new HttpHeaders();
+    header = header.set('Content-type', 'application/json');
+    let request = 'api/personajes';
+    let url = environment.urlApiSeries + request;
+    return this._http.post(url, json, { headers: header });
   }
 }
