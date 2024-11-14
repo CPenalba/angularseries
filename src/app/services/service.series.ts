@@ -53,4 +53,10 @@ export class ServiceSeries {
     var url = environment.urlApiSeries + request;
     return this._http.put(url, { headers: header });
   }
+
+  deletePersonaje(idPersonaje: string): Observable<any> {
+    var request = 'api/personajes/' + idPersonaje;
+    var url = environment.urlApiSeries + request;
+    return this._http.delete(url);
+  }
 }

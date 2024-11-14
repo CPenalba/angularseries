@@ -18,7 +18,15 @@ export class PersonajesSerieComponent implements OnInit {
     private _service: ServiceSeries
   ) {}
 
-  ngOnInit(): void {
+  deletePersonaje(idPersonaje: number): void {
+    var id = idPersonaje.toString();
+    console.log(id);
+    this._service.deletePersonaje(id).subscribe((response) => {
+      this.cargarPersonajes();
+    });
+  }
+
+  cargarPersonajes(): void {
     this._activeRoute.params.subscribe((params: Params) => {
       this.idSerie = params['id'];
       this._service
@@ -28,5 +36,9 @@ export class PersonajesSerieComponent implements OnInit {
           this.personajes = response;
         });
     });
+  }
+
+  ngOnInit(): void {
+    this.cargarPersonajes();
   }
 }
